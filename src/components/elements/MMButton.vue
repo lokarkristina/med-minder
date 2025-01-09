@@ -20,7 +20,12 @@ defineProps({
   </button>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .button {
+  background: var(--color-accent);
+
+  &:hover {
+    background: var(--color-primary);
+  }
 }
 </style>

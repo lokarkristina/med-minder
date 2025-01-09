@@ -1,5 +1,5 @@
 <script setup>
-import MMButton from '../elements/MMButton.vue';
+import MMButton from '../elements/MMButton.vue'
 </script>
 
 <template>

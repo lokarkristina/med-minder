@@ -1,8 +1,8 @@
 <script setup>
-import { RouterView } from 'vue-router';
+import { RouterView } from 'vue-router'
 // components
-import MMFooter from '@/components/layout/MMFooter.vue';
-import MMHeader from '@/components/layout/MMHeader.vue';
+import MMFooter from '@/components/layout/MMFooter.vue'
+import MMHeader from '@/components/layout/MMHeader.vue'
 </script>
 
 <template>
