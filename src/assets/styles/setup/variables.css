@@ -1,0 +1,17 @@
+:root {
+  /* fonts */
+  --font-denk-one: 'Denk One', sans-serif;
+  --font-athiti: 'Athiti', sans-serif;
+  --font-yantramanav: 'Yantramanav', sans-serif;
+  --font-text: var(--font-yantramanav);
+  --font-heading: var(--font-athiti);
+  --font-special: var(--font-denk-one);
+
+  /* colors */
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-primary: #ff5a5a;
+  --color-accent: #8ddca4;
+  --color-text: #2A2B2A;
+}
