@@ -2,12 +2,5 @@
 </script>
 
 <template>
-  <main>
-    <h1>
-      The home page with a navigation.
-    </h1>
-    <Button>
-      The button!
-    </Button>
-  </main>
+  Test home page.
 </template>
