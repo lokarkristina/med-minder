@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  Test home page.
+  <button class="btn">Hello daisyui</button>
 </template>
