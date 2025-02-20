@@ -1,38 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
 @import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Grand Hotel', serif;
+}
+
 @plugin "daisyui";
 
 /* custom theme */
 @plugin "daisyui/theme" {
-  name: 'elated';
+  name: "elated";
   default: true;
   prefersdark: false;
-  color-scheme: 'light';
+  color-scheme: "light";
   --color-base-100: oklch(98% 0.001 106.423);
   --color-base-200: oklch(97% 0.001 106.424);
   --color-base-300: oklch(92% 0.003 48.717);
-  --color-base-content: oklch(26% 0.007 34.298);
+  --color-base-content: oklch(27% 0.033 256.848);
   --color-primary: oklch(68.59% 0.2031 24.21);
   --color-primary-content: oklch(100% 0 0);
   --color-secondary: oklch(37% 0.044 257.287);
   --color-secondary-content: oklch(98% 0.018 155.826);
   --color-accent: oklch(87% 0.169 91.605);
   --color-accent-content: oklch(37% 0.044 257.287);
-  --color-neutral: oklch(86% 0.022 252.894);
+  --color-neutral: oklch(96.75% 0.0164 8.16);
   --color-neutral-content: oklch(12% 0.042 264.695);
   --color-info: oklch(60% 0.118 184.704);
   --color-info-content: oklch(97% 0.014 254.604);
-  --color-success: oklch(93% 0.127 124.321);
+  --color-success: oklch(76% 0.177 163.223);
   --color-success-content: oklch(37% 0.044 257.287);
   --color-warning: oklch(92% 0.12 95.746);
   --color-warning-content: oklch(37% 0.044 257.287);
-  --color-error: oklch(50% 0.213 27.518);
+  --color-error: oklch(71% 0.194 13.428);
   --color-error-content: oklch(97% 0.013 17.38);
-  --radius-selector: 0.25rem;
-  --radius-field: 0.25rem;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
   --radius-box: 0.5rem;
   --size-selector: 0.1875rem;
   --size-field: 0.1875rem;
   --border: 1px;
-  --depth: 1;
+  --depth: 0;
   --noise: 0;
+
+
+  --color-rose: #e8cace;
+  --color-rose-content: var(--color-base-content);
+  --color-aliceblue: #D6E8F7;
+  --color-aliceblue-content: var(--color-base-content);
+  --color-persimmon: #ef601e;
+  --color-lilac: #caaacd;
+  --color-dutchwhite: #f1dfb6;
+  --color-cosmiclatte: #fdf3dd;
+}
+
+button {
+  cursor: pointer;
 }
