@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { PlusIcon } from '@heroicons/vue/24/solid'
 import { defineProps } from 'vue'
 
 const props = withDefaults(
@@ -49,9 +48,6 @@ const cardClasses = [
 <style>
 .card-title {
   font-family: var(--font-serif);
-}
-
-.card-content {
 }
 
 .card {

@@ -13,14 +13,14 @@ export const widgets: Widgets[] = [
   },
   {
     id: 'medicines',
-    title: 'Active meds',
-  },
-  {
-    id: 'activity',
-    title: 'activity',
+    title: 'My meds',
   },
   {
     id: 'something',
     title: 'Something else',
+  },
+  {
+    id: 'activity',
+    title: 'activity',
   },
 ]

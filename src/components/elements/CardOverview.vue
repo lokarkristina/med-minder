@@ -1,31 +1,86 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import { PlusIcon } from '@heroicons/vue/24/solid'
+import { medicine } from '@/utils/database'
+import { stash } from '@/utils/stash'
 
-const props = defineProps({
-  data: Object,
-})
+interface CardData {
+  title: string
+  info?: string
+}
+
+const props = defineProps<{
+  data: CardData
+  untilNextApp: number
+  daysInMonth: number
+}>()
+
+const medsToCheckup = (amount: number): number => {
+  return props.untilNextApp * amount
+}
+
+const needsRefill = (id: string, amount: number): boolean => {
+  const medStash = stash.find((s) => s.id === id) || { amount: 0 }
+  return medsToCheckup(amount) > medStash.amount
+}
 </script>
 
 <template>
-  <div class="card card-border aspect-square relative isolate">
-    <div class="card-body grid items-end p-5">
-      <div class="card-content text-center">
-        <h2 class="card-title inline-flex text-7xl lowercase">
-          {{ props.data?.title }}
-        </h2>
-        <p class="card-info">
-          {{ props.data?.info }}
-        </p>
+  <div class="card shadow-sm aspect-square relative isolate">
+    <div class="card-body grid items-center p-5">
+      <!-- the active meds info -->
+      <div
+        class="grid grid-flow-col items-start bg-neutral rounded-md text-center gap-3 py-15 px-5"
+      >
+        <template v-for="med in medicine" :key="med.id">
+          <div
+            v-if="med.active"
+            :class="[
+              needsRefill(med.id, med.amountPerDay) ? 'bg-error' : 'bg-success',
+            ]"
+            class="border border-secondary/20 py-5 px-2 rounded-md"
+          >
+            <span class="text-3xl">
+              {{ med.title }}
+            </span>
 
-        <!-- default slot -->
-        <slot></slot>
+            <!-- <div>
+               until next appoitment you need: <br />
+               {{ medsToCheckup(med.amountPerDay) }}
+              </div> -->
+            <div>
+              have @ home <br />
+              {{ stash.find((s) => s.id === med.id)?.amount }}
+            </div>
+            <div class="border-t border-secondary/20 mt-2 pt-2">
+              need refill? <br />
+              <strong>
+                {{ `${needsRefill(med.id, med.amountPerDay)}`.toUpperCase() }}
+              </strong>
+            </div>
+            <!-- <div v-if="needsRefill(med.id, med.amountPerDay)">
+                how many boxes: <br />
+                {{ Math.ceil(medsToCheckup(med.amountPerDay) / med.perBox) }}
+              </div> -->
+          </div>
+        </template>
       </div>
-      <div class="card-actions absolute top-5 right-5">
+
+      <!-- card info -->
+      <div class="card-content self-end text-center">
+        <h2 class="card-title inline-flex text-7xl lowercase">
+          {{ props.data.title }}
+        </h2>
+        <p v-if="props.data.info" class="card-info">
+          {{ props.data.info }}
+        </p>
+      </div>
+
+      <!-- <div class="card-actions absolute top-5 right-5">
         <button class="aspect-square p-1 rounded-full">
           <PlusIcon class="w-5 aspect-square" />
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -33,7 +88,7 @@ const props = defineProps({
 <style scoped>
 .card {
   --_primary: var(--color-rose);
-  --_accent: var(--color-cosmiclatte);
+  --_accent: var(--color-secondary);
 
   grid-column: span 2;
   grid-row: span 2;

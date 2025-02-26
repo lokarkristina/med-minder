@@ -35,7 +35,14 @@ const menulinks = ref([
 
             <!-- logo -->
             <div class="site-logo">
-              <img alt="MedsMinder logo" class="logo" src="@/assets/logo.png" width="80" />
+              <RouterLink to="/">
+                <img
+                  alt="MedsMinder logo"
+                  class="logo"
+                  src="@/assets/logo.png"
+                  width="80"
+                />
+              </RouterLink>
             </div>
 
             <!-- main menu -->

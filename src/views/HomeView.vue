@@ -10,6 +10,7 @@ import { ArrowRightIcon, StarIcon } from '@heroicons/vue/16/solid'
 
 const homeWidgets = ref(widgets)
 const nextAppoitmentDate = ref<Date>(new Date())
+const today = ref<Date>(new Date())
 
 const getCardType = (id: string) => {
   return widgets.find((w) => w.id === id)?.id
@@ -21,12 +22,21 @@ const daysUntilNextAppoitment = computed(() => {
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 })
 
+const daysInCurrentMonth = computed(() => {
+  return new Date(
+    today.value.getFullYear(),
+    today.value.getMonth() + 1,
+    0,
+  ).getDate()
+})
+
 const updateAppoitmentDate = () => {
   alert('🦆')
 }
 
 onMounted(() => {
   nextAppoitmentDate.value = new Date('04/04/2025')
+  today.value = new Date()
 })
 </script>
 
@@ -35,7 +45,11 @@ onMounted(() => {
     <template v-for="item in homeWidgets" :key="item.id">
       <!-- overview -->
       <template v-if="getCardType(item.id) === 'overview'">
-        <CardOverview :data="item" />
+        <CardOverview
+          :data="item"
+          :until-next-app="daysUntilNextAppoitment"
+          :days-in-month="daysInCurrentMonth"
+        />
       </template>
 
       <!-- next appointment -->
@@ -50,12 +64,15 @@ onMounted(() => {
             class="inline-grid w-auto justify-items-center justify-center gap-1 py-1 border-2 border-dashed rounded-sm"
           >
             <!-- @todo -->
+            <!-- @todo add time -->
             <code class="font-mono text-xl text-info">
               {{ nextAppoitmentDate.toLocaleDateString() }}
             </code>
             <button
               class="rounded-md text-[0.5rem] py-0.5 px-1 tracking-widest"
               @click="updateAppoitmentDate"
+              title="update appoitment date"
+              type="button"
             >
               change
             </button>
@@ -81,11 +98,9 @@ onMounted(() => {
         >
           <ul class="grid gap-0.75 h-full text-start text-[0.75rem]">
             <li v-for="med in medicine" :key="med.id" class="inline-block">
-              <a
-                href="/"
+              <RouterLink
+                :to="`/medicine/${med.id}`"
                 class="flex items-center py-1"
-                target="_blank"
-                rel="noopener"
                 :title="`learn more about ${med.title}`"
               >
                 <span class="inline-block me-1">
@@ -95,25 +110,21 @@ onMounted(() => {
                   {{ med.title }}
                 </code>
                 <ArrowRightIcon class="w-3 ms-auto" />
-              </a>
+              </RouterLink>
             </li>
           </ul>
         </Card>
       </template>
 
       <!-- activity -->
-       <template v-if="getCardType(item.id) === 'activity'">
-        <Card :title="item.title" :type="item.id">
-
-        </Card>
-       </template>
+      <template v-if="getCardType(item.id) === 'activity'">
+        <Card :title="item.title" :type="item.id"> </Card>
+      </template>
 
       <!-- etc -->
-       <template v-else-if="getCardType(item.id) === 'something'">
-        <Card :title="item.title" :type="item.id">
-
-        </Card>
-       </template>
+      <template v-else-if="getCardType(item.id) === 'something'">
+        <Card :title="item.title" :type="item.id"> </Card>
+      </template>
     </template>
   </div>
 </template>
