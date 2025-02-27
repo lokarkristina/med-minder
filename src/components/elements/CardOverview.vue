@@ -21,26 +21,26 @@ const medsToCheckup = (amount: number): number => {
 
 const needsRefill = (id: string, amount: number): boolean => {
   const medStash = stash.find((s) => s.id === id) || { amount: 0 }
-  return medsToCheckup(amount) > medStash.amount
+  return medsToCheckup(amount) > medStash.amount ? 'yess' : 'not yet'
 }
 </script>
 
 <template>
   <div class="card shadow-sm aspect-square relative isolate">
-    <div class="card-body grid items-center p-5">
+    <div class="card-body grid grid-rows-[1fr_auto] gap-y-5 p-5">
       <!-- the active meds info -->
       <div
-        class="grid grid-flow-col items-start bg-neutral rounded-md text-center gap-3 py-15 px-5"
+        class="grid grid-cols-2 items-start content-center bg-neutral rounded-sm text-center gap-y-2 gap-x-6 py-5 px-6"
       >
         <template v-for="med in medicine" :key="med.id">
           <div
-            v-if="med.active"
+            v-if="med.active && med.scheduled"
             :class="[
               needsRefill(med.id, med.amountPerDay) ? 'bg-error' : 'bg-success',
             ]"
-            class="border border-secondary/20 py-5 px-2 rounded-md"
+            class="aspect-square grid content-center border py-3 px-4 rounded-sm"
           >
-            <span class="text-3xl">
+            <span class="font-mono text-2xl">
               {{ med.title }}
             </span>
 
@@ -49,14 +49,16 @@ const needsRefill = (id: string, amount: number): boolean => {
                {{ medsToCheckup(med.amountPerDay) }}
               </div> -->
             <div>
-              have @ home <br />
-              {{ stash.find((s) => s.id === med.id)?.amount }}
+              <span class="text-xs"> @ home </span>
+              <code>
+                {{ stash.find((s) => s.id === med.id)?.amount }}
+              </code>
             </div>
-            <div class="border-t border-secondary/20 mt-2 pt-2">
-              need refill? <br />
-              <strong>
+            <div class="border-t border-secondary/20 mt-1 pt-1">
+              <span class="text-xs"> need refill? <br /> </span>
+              <code>
                 {{ `${needsRefill(med.id, med.amountPerDay)}`.toUpperCase() }}
-              </strong>
+              </code>
             </div>
             <!-- <div v-if="needsRefill(med.id, med.amountPerDay)">
                 how many boxes: <br />

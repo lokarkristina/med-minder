@@ -7,6 +7,9 @@
  * @property {number} perBox - Number of units per medicine box/package
  * @property {string} dose - Dosage information for the medicine
  * @property {number} amountPerDay - Number of doses to take per day
+ * @property {string} type - Type or category of the medicine
+ * @property {boolean} active - Indicates if the medicine is currently active or in use
+ * @property {boolean} scheduled - Indicates if the medicine is taken as needed
  */
 export interface Medicine {
   id: string
@@ -17,4 +20,5 @@ export interface Medicine {
   amountPerDay: number
   type: string
   active: boolean
+  scheduled: boolean
 }

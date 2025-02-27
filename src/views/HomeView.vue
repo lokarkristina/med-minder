@@ -117,12 +117,12 @@ onMounted(() => {
       </template>
 
       <!-- activity -->
-      <template v-if="getCardType(item.id) === 'activity'">
+      <template v-if="false && getCardType(item.id) === 'activity'">
         <Card :title="item.title" :type="item.id"> </Card>
       </template>
 
       <!-- etc -->
-      <template v-else-if="getCardType(item.id) === 'something'">
+      <template v-else-if="getCardType(item.id) === 'as-needed-log'">
         <Card :title="item.title" :type="item.id"> </Card>
       </template>
     </template>

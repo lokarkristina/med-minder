@@ -16,8 +16,8 @@ export const widgets: Widgets[] = [
     title: 'My meds',
   },
   {
-    id: 'something',
-    title: 'Something else',
+    id: 'as-needed-log',
+    title: 'As needed',
   },
   {
     id: 'activity',

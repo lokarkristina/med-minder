@@ -48,6 +48,7 @@ const cardClasses = [
 <style>
 .card-title {
   font-family: var(--font-serif);
+  font-weight: 400;
 }
 
 .card {
