@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer class="footer sm:footer-horizontal bg-info text-info-content p-10">
+  <footer class="p-10 footer sm:footer-horizontal bg-info text-info-content">
     <aside>
       <p>
         ACME Industries Ltd.
@@ -12,8 +12,6 @@
     <nav>
       <h6 class="footer-title">Social</h6>
       <div class="grid grid-flow-col gap-4">
-        <a> icon </a>
-        <a> icon </a>
         <a> icon </a>
       </div>
     </nav>

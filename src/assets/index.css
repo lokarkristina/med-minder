@@ -6,14 +6,14 @@
   --font-serif: 'Grand Hotel', serif;
 }
 
-@plugin "daisyui";
+@plugin 'daisyui';
 
 /* custom theme */
-@plugin "daisyui/theme" {
-  name: "elated";
+@plugin 'daisyui/theme' {
+  name: 'elated';
   default: true;
   prefersdark: false;
-  color-scheme: "light";
+  color-scheme: 'light';
   --color-base-100: oklch(98% 0.001 106.423);
   --color-base-200: oklch(97% 0.001 106.424);
   --color-base-300: oklch(92% 0.003 48.717);
@@ -43,16 +43,15 @@
   --depth: 0;
   --noise: 0;
 
-
   --color-rose: #e8cace;
   --color-rose-content: var(--color-base-content);
-  --color-aliceblue: #D6E8F7;
+  --color-aliceblue: #d6e8f7;
   --color-aliceblue-content: var(--color-base-content);
   --color-persimmon: #ef601e;
   --color-lilac: #caaacd;
   --color-dutchwhite: #f1dfb6;
   --color-cosmiclatte: #fdf3dd;
-  --color-lapis: #1A659E;
+  --color-lapis: #1a659e;
 }
 
 button {

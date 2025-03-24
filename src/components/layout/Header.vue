@@ -25,7 +25,7 @@ const menulinks = ref([
 
 <template>
   <header>
-    <div class="container max-w-5xl md:max-w-7xl mx-auto">
+    <div class="container max-w-5xl mx-auto md:max-w-7xl">
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
@@ -47,7 +47,7 @@ const menulinks = ref([
 
             <!-- main menu -->
             <ul
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2"
+              class="p-2 mt-3 menu menu-sm dropdown-content bg-base-100 rounded-box z-1 w-52"
               tabindex="0"
             >
               <li v-for="link in menulinks" :key="link.path">
@@ -63,8 +63,8 @@ const menulinks = ref([
           </div>
         </div>
         <!-- mobile menu -->
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
+        <div class="hidden navbar-center lg:flex">
+          <ul class="px-1 menu menu-horizontal">
             <li v-for="link in menulinks" :key="link.path">
               <details>
                 <summary>{{ link.title }}</summary>

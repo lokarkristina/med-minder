@@ -21,9 +21,9 @@ const cardClasses = [
 
 <template>
   <div :id="props.type" :class="cardClasses">
-    <div class="card-body grid p-3">
-      <div :class="contentClasses" class="grid card-content text-center">
-        <h2 class="card-title inline-flex justify-center text-3xl lowercase">
+    <div class="grid p-3 card-body">
+      <div :class="contentClasses" class="grid text-center card-content">
+        <h2 class="inline-flex justify-center text-3xl lowercase card-title">
           {{ props.title }}
         </h2>
         <p v-if="props.info" class="card-info">
@@ -36,8 +36,8 @@ const cardClasses = [
 
       <!-- @todo maybe add this on hover somehow -->
       <!-- don't like the way it sits on the corder if there's a lot of content in the card -->
-      <!-- <div class="card-actions absolute top-5 right-5">
-        <button class="aspect-square p-1 rounded-full">
+      <!-- <div class="absolute card-actions top-5 right-5">
+        <button class="p-1 rounded-full aspect-square">
           <PlusIcon class="w-5 aspect-square" />
         </button>
       </div> -->

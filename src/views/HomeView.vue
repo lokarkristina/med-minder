@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-4 grid-rows-2 grid-flow-dense items-stretch gap-4">
+  <div class="grid items-stretch grid-cols-4 grid-rows-2 gap-4 grid-flow-dense">
     <template v-for="item in homeWidgets" :key="item.id">
       <!-- overview -->
       <template v-if="getCardType(item.id) === 'overview'">
@@ -61,7 +61,7 @@ onMounted(() => {
           :content-classes="['gap-y-2 justify-center content-center items-end']"
         >
           <div
-            class="inline-grid w-auto justify-items-center justify-center gap-1 py-1 border-2 border-dashed rounded-sm"
+            class="inline-grid justify-center w-auto gap-1 py-1 border-2 border-dashed rounded-sm justify-items-center"
           >
             <!-- @todo -->
             <!-- @todo add time -->
