@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer.vue'
 <template>
   <Header />
 
-  <main class="container max-w-5xl md:max-w-4xl mx-auto py-15">
+  <main class="container max-w-5xl mx-auto md:max-w-4xl py-15">
     <RouterView />
   </main>
 
@@ -19,6 +19,6 @@ import Footer from '@/components/layout/Footer.vue'
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100svh;
-  background: var(--color-neutral);
+  background: #F6D4BA;
 }
 </style>

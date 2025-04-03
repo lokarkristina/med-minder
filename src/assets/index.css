@@ -11,6 +11,7 @@
 /* custom theme */
 @plugin 'daisyui/theme' {
   name: 'elated';
+  themes: 'elated' --default, 'elated' --prefersdark;
   default: true;
   prefersdark: false;
   color-scheme: 'light';
